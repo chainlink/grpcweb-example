@@ -28,7 +28,9 @@ cd client
 npm start
 ```
 
-[https://chrome.google.com/webstore/detail/grpc-web-developer-tools/ddamlpimmiapbcopeoifjfmoabdbfbjj](GRPC Chrome Dev Tools)
+GRPC Chrome Dev Tools
+
+https://chrome.google.com/webstore/detail/grpc-web-developer-tools/ddamlpimmiapbcopeoifjfmoabdbfbjj
 
 
 # Server

@@ -15,6 +15,10 @@ To generate the protojs files, run the following command (This has already been 
 protoc -I=. ping_pong.proto --js_out=import_style=commonjs:. --grpc-web_out=import_style=commonjs,mode=grpcwebtext:.
 ```
 
+Copy `ping_pong_grpc_web_pb.js` and `ping_pong_pb.js` into `/client/src`
+
+Note: You must add `/* eslint-disable */` to the top of both  `*_pb.js` files, otherwise create create app won't compile
+
 See `client/src/App.js` for examples of usage
 
 To start

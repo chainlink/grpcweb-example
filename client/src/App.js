@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const { PingPongServiceClient } = require('./ping_pong_grpc_web_pb');
-const { PingRequest, PongResponse } = require('./ping_pong_pb.js');
+const { APIClient } = require('./pfs_grpc_web_pb')
+const { ListRepoRequest, ListRepoResponse } = require('./pfs_pb')
+//const { PingPongServiceClient } = require('./ping_pong_grpc_web_pb');
+//const { PingRequest, PongResponse } = require('./ping_pong_pb.js');
 
 const enableDevTools = window.__GRPCWEB_DEVTOOLS__ || (() => {});
 
-var client = new PingPongServiceClient('http://localhost:9090', null, null);
+var client = new APIClient('http://localhost', null, null);
 
 enableDevTools([
   client,
@@ -16,14 +18,13 @@ enableDevTools([
 class App extends Component {
 
   callGrpcService = () => {
-    const request = new PingRequest();
-    request.setPing('Ping');
+    const request = new ListRepoRequest();
 
-    client.pingPong(request, {}, (err, response) => {
+    client.listRepo(request, {}, (err, response) => {
       if (response == null) {
         console.log(err)
       }else {
-        console.log(response.getPong())
+        console.log(response)
       }
     });
   }
